@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sonido by Maquina | Hauz Khas Village (concept demo)</title>
+<meta name="description" content="A music-led bar in Hauz Khas Village. Plan your night and request a table on WhatsApp. A concept demo, not the official site.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Brief: dark nightlife, magenta on ink, condensed display. One idea: a night planner with an equaliser pulse. Signature moment: pick a night, count the crew, send the request.
+   Photos: labelled Unsplash stock, placeholders for the business's own. */
+:root{--bg:#0b0a14;--fg:#f2eefc;--ac:#ff3d7f;--onac:#14041a;--card:#151327;--mute:#9a94b8;--line:rgba(242,238,252,.16);--navbg:rgba(11,10,20,.9);--disp:'Anton',Impact,sans-serif;--sans:'Space Grotesk',system-ui,sans-serif;--r:6px;--cr:6px;--hw:400}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--fg);line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}a{color:inherit}button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.wrap{width:min(1160px,100% - 40px);margin:0 auto}
+h1,h2,h3{font-family:var(--disp);font-weight:var(--hw,400);line-height:.97;letter-spacing:-.01em}
+h2{font-size:clamp(2.3rem,5.2vw,4.2rem)}em{font-style:italic;color:var(--ac)}
+.lab{font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:var(--ac)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6em;padding:1em 1.7em;border-radius:var(--r,99px);background:var(--ac);color:var(--onac,#fff);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;text-decoration:none;transition:transform .3s,filter .3s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.1)}.btn.o{background:none;color:var(--fg);border:1.5px solid var(--line)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}.rv.in{opacity:1;transform:none}
+nav{position:fixed;inset:0 0 auto;z-index:50;padding:14px 0;background:var(--navbg);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px}
+.logo{font-family:var(--disp);font-size:1.4rem;text-decoration:none;line-height:1}.logo small{display:block;font-family:var(--sans);font-size:.52rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ac);margin-top:3px;font-weight:700}
+nav ul{display:flex;gap:26px;list-style:none;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600}nav ul a{text-decoration:none;opacity:.7}nav ul a:hover{opacity:1;color:var(--ac)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}.chips button{padding:.55em 1.1em;border:1.5px solid var(--line);border-radius:var(--cr,99px);font-size:.86rem;transition:.25s}.chips button.on{background:var(--ac);border-color:var(--ac);color:var(--onac,#fff);font-weight:600}
+.form{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;display:grid;gap:18px}.form label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:8px;font-weight:700}
+.form input{width:100%;background:none;border:1.5px solid var(--line);border-radius:12px;padding:.8em 1em;color:var(--fg);font:inherit}
+.tray{margin-top:24px;background:var(--fg);color:var(--bg);border-radius:20px;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}.tray b{font-family:var(--disp);font-size:1.7rem;font-weight:400}.tray .btn{background:var(--ac);color:var(--onac,#fff)}
+section{padding:96px 0}.band{background:var(--card);border-block:1px solid var(--line)}
+.note{color:var(--mute);font-size:.78rem}
+.vis{text-align:center}.vis h2{margin:12px 0 16px}.vis p{color:var(--mute);margin-bottom:24px}
+footer{padding:28px 0 92px;font-size:.78rem;color:var(--mute);text-align:center}
+.sticky{display:none}
+@media(max-width:860px){nav ul{display:none}section{padding:68px 0}.sticky{display:flex;position:fixed;inset:auto 0 0;z-index:60;padding:10px 16px;background:var(--bg);border-top:1px solid var(--line)}.sticky .btn{flex:1}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+h1,h2,h3{text-transform:uppercase;letter-spacing:.01em;line-height:1}em{font-style:normal;color:var(--ac)}
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:100px 0 56px;overflow:hidden}.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,10,20,.3),var(--bg) 96%)}.hero .wrap{position:relative;z-index:2}
+.hero h1{font-size:clamp(4.4rem,16vw,14rem);margin:10px 0 16px}.hero p.s{max-width:470px;color:#cfc8ea;margin-bottom:24px}
+.rate{display:inline-flex;gap:8px;font-size:.8rem;font-weight:600;border:1px solid var(--line);border-radius:99px;padding:.45em 1em;background:rgba(11,10,20,.6)}
+.eq{display:flex;gap:4px;align-items:flex-end;height:34px;margin-left:6px}.eq i{width:5px;background:var(--ac);animation:b 1s ease-in-out infinite;border-radius:2px}.eq i:nth-child(2){animation-delay:.2s}.eq i:nth-child(3){animation-delay:.4s}.eq i:nth-child(4){animation-delay:.1s}.eq i:nth-child(5){animation-delay:.3s}@keyframes b{0%,100%{height:6px}50%{height:32px}}
+.pl{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;margin-top:32px;align-items:start}
+.nights{display:grid;gap:10px}.nights button{display:grid;grid-template-columns:78px 1fr auto;gap:14px;align-items:center;padding:16px 18px;border:1.5px solid var(--line);border-radius:10px;background:var(--card);text-align:left;transition:.2s}.nights button.on{border-color:var(--ac);box-shadow:0 0 0 1px var(--ac),0 0 28px -8px var(--ac)}.nights .d{font-family:var(--disp);font-size:1.7rem;line-height:1}.nights .d small{display:block;font-family:var(--sans);font-size:.62rem;letter-spacing:.2em;color:var(--mute)}.nights b{display:block}.nights span.g{font-size:.78rem;color:var(--mute)}.nights .tag{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ac);font-weight:700}
+.stp{display:flex;align-items:center;gap:14px}.stp button{width:42px;height:42px;border:1.5px solid var(--line);border-radius:8px;font-size:1.3rem}.stp button:hover{border-color:var(--ac);color:var(--ac)}.stp b{font-family:var(--disp);font-size:2.3rem;min-width:46px;text-align:center;font-weight:400}
+.sum{position:sticky;top:90px}.sum h3{font-size:1.9rem;margin-bottom:12px}.sum dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:.92rem;margin-bottom:16px}.sum dt{color:var(--mute)}.sum dd{text-align:right;font-weight:600}
+.g3{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}.g3 img{width:100%;height:100%;min-height:300px;object-fit:cover;border-radius:12px;filter:saturate(1.15)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}.facts div{border-top:2px solid var(--ac);padding-top:12px}.facts b{font-family:var(--disp);font-weight:400;font-size:1.7rem;display:block;text-transform:uppercase}.facts span{font-size:.84rem;color:var(--mute)}
+@media(max-width:860px){.pl{grid-template-columns:1fr}.sum{position:static}.g3,.facts{grid-template-columns:1fr}.g3 img{min-height:210px}.nights button{grid-template-columns:62px 1fr}.nights .tag{grid-column:2}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a class="logo" href="#top">SONIDO<small>by Maquina</small></a><ul><li><a href="#plan">Plan a night</a></li><li><a href="#vibe">The vibe</a></li><li><a href="#visit">Visit</a></li></ul><a class="btn" href="#plan">Get on the list</a></div></nav>
+<header class="hero" id="top"><img src="img/hero.jpg" alt="Bar with warm pendant lights and a backlit counter"><div class="wrap"><span class="rate">&#9733; 4.3 &middot; 637 Google reviews<span class="eq"><i></i><i></i><i></i><i></i><i></i></span></span><h1>Sound<br><em>on.</em></h1><p class="s">Hauz Khas Village after dark. Pick your night, count your crew, and send the table request. We will hold your spot.</p><a class="btn" href="#plan">Plan my night</a></div></header>
+<section id="plan"><div class="wrap"><span class="lab">Plan your night</span><h2 style="margin-top:10px;font-size:clamp(2.6rem,6vw,5rem)">Pick a night. <em>Bring the crew.</em></h2>
+<div class="pl"><div><div class="nights" id="nights"></div>
+<div style="margin-top:24px"><div class="lab" style="margin-bottom:10px">How many of you</div><div class="stp"><button id="mn" aria-label="Fewer">-</button><b id="gn">4</b><button id="pl" aria-label="More">+</button></div></div>
+<div style="margin-top:22px"><div class="lab" style="margin-bottom:8px">Where</div><div class="chips" id="seatc"></div></div></div>
+<aside class="form sum"><h3>Your night</h3><dl><dt>Night</dt><dd id="s1"></dd><dt>Sound</dt><dd id="s2"></dd><dt>Crew</dt><dd id="s3"></dd><dt>Seating</dt><dd id="s4"></dd></dl><a class="btn" id="wa" href="#">Request table on WhatsApp</a><p class="note" style="margin-top:12px">Sample line-up. The venue confirms the real schedule and availability.</p></aside></div></div></section>
+<section class="band" id="vibe"><div class="wrap"><span class="lab">The vibe</span><h2 style="margin-top:10px;font-size:clamp(2.4rem,5.6vw,4.6rem)">Lights low. <em>Volume up.</em></h2>
+<div class="facts"><div><b>Live sets</b><span>Music-first nights, from warm-up to last call.</span></div><div><b>Craft pours</b><span>Cocktails built at the bar while you watch.</span></div><div><b>637 reviews</b><span>4.3 stars from Hauz Khas Village regulars.</span></div></div>
+<div class="g3"><figure class="rv"><img src="img/dj.jpg" alt="DJ hands on a mixer under neon light" loading="lazy"></figure><figure class="rv"><img src="img/crowd.jpg" alt="Crowd with hands up under red stage lights" loading="lazy"></figure></div></div></section>
+<section id="visit"><div class="wrap vis"><span class="lab">Find us</span><h2>Hauz Khas Village</h2><p>Ground floor, 30A, Hauz Khas Village, New Delhi 110016</p><a class="btn" href="https://wa.me/919811591113?text=Hi%20Sonido!%20I%27d%20like%20to%20ask%20about%20a%20table." target="_blank" rel="noopener">Message on WhatsApp</a></div></section>
+<footer><div class="wrap">Concept demo by Kavimir &middot; Not the official site &middot; Photos are stock placeholders &middot; Line-up is a sample</div></footer>
+<div class="sticky"><a class="btn" id="wa2" href="#">Request table</a></div>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+function chips(id,arr,k,st,cb){const el=document.getElementById(id);el.innerHTML=arr.map(a=>`<button class="${st[k]==a?'on':''}">${a}</button>`).join('');el.onclick=e=>{if(e.target.tagName!='BUTTON')return;st[k]=e.target.textContent;chips(id,arr,k,st,cb);cb()}}
+const N=[['Thu','Throwback','Hits you know every word to','Open floor'],['Fri','House & Disco','Resident DJ, peak at midnight','Filling fast'],['Sat','Live + Late','Band first, DJ after','Book early'],['Sun','Easy Sunday','Acoustic and slow pours','Chill']];
+const st={n:1,seat:'Table',g:4};const seats=['Table','Bar','Lounge'];
+function nights(){document.getElementById('nights').innerHTML=N.map((x,i)=>`<button class="${st.n==i?'on':''}" data-i="${i}"><span class="d">${x[0]}<small>NIGHT</small></span><span><b>${x[1]}</b><span class="g">${x[2]}</span></span><span class="tag">${x[3]}</span></button>`).join('')}
+document.getElementById('nights').onclick=e=>{const b=e.target.closest('button');if(!b)return;st.n=+b.dataset.i;nights();upd()};
+document.getElementById('mn').onclick=()=>{st.g=Math.max(1,st.g-1);upd()};document.getElementById('pl').onclick=()=>{st.g=Math.min(20,st.g+1);upd()};
+function upd(){const x=N[st.n];document.getElementById('gn').textContent=st.g;document.getElementById('s1').textContent=x[0];document.getElementById('s2').textContent=x[1];document.getElementById('s3').textContent=st.g+(st.g==1?' person':' people');document.getElementById('s4').textContent=st.seat;
+const msg=`Hi Sonido! I'd like to request a ${st.seat.toLowerCase()} for ${st.g} on ${x[0]} (${x[1]}). Please confirm availability.`;const u='https://wa.me/919811591113?text='+encodeURIComponent(msg);['wa','wa2'].forEach(i=>{const a=document.getElementById(i);a.href=u;a.target='_blank';a.rel='noopener'})}
+chips('seatc',seats,'seat',st,upd);nights();upd();
+</script>
+</body></html>
